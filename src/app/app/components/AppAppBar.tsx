@@ -1,6 +1,5 @@
 'use client';
 
-import { useSupabase } from '@/app/context/SupabaseProvider';
 import {
   ChatBubbleOutlineOutlined,
   MenuOutlined,
@@ -20,14 +19,7 @@ import { useRouter } from 'next/navigation';
 
 const AppAppBar = () => {
   const trigger = useScrollTrigger();
-  const { supabase } = useSupabase();
   const router = useRouter();
-
-  const handleLogout = async () => {
-    let { error } = await supabase.auth.signOut();
-
-    router.replace('/auth/login');
-  };
 
   const content = (
     <AppBar
@@ -78,7 +70,7 @@ const AppAppBar = () => {
             <NotificationsNoneOutlined />
           </IconButton>
           <Avatar
-            onClick={handleLogout}
+            onClick={() => router.push('/app/user')}
             color="red"
             className="!w-[28px] !h-[28px] cursor-pointer"
           >
