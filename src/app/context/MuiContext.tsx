@@ -15,12 +15,9 @@ const MuiContext = ({ children }: { children: React.ReactNode }) => {
     <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Paper
-          elevation={0}
-          sx={{ background: grey[200], borderRadius: 0, minHeight: '100vh' }}
-        >
+        <main style={{ background: grey[200], minHeight: '100vh' }}>
           {children}
-        </Paper>
+        </main>
       </ThemeProvider>
     </CacheProvider>
   );
