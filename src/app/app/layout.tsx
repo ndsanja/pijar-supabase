@@ -6,10 +6,10 @@ type Props = {
 };
 
 export default function AppLayout({ children }: Props) {
-  let authCookies = cookies().get('supabase-auth-token');
-  if (authCookies == undefined) {
-    redirect('/auth/login');
-  }
+  // let authCookies = cookies().get('supabase-auth-token');
+  // if (authCookies == undefined) {
+  //   redirect('/auth/login');
+  // }
 
   return (
     <>
