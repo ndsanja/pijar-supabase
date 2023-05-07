@@ -1,13 +1,11 @@
-import UserPageClient from './UserPage';
 import Header from './components/Header';
-import TabsMenu from './components/TabsMenu';
+import Tab from './components/Tab';
 
 export default function UserPage() {
   return (
     <div>
       <Header />
-      <TabsMenu />
-      <UserPageClient />
+      <Tab />
     </div>
   );
 }
