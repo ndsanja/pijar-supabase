@@ -8,7 +8,11 @@ import {
   SchoolOutlined,
   TravelExploreOutlined,
 } from '@mui/icons-material';
-import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+import {
+  Avatar,
+  BottomNavigation,
+  BottomNavigationAction,
+} from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -41,12 +45,13 @@ const BottomNavigationComp = () => {
         icon={<SchoolOutlined />}
       />
       <BottomNavigationAction
-        label="Studio"
-        icon={<DesktopWindowsOutlined />}
+        label="Pemberitahuan"
+        icon={<NotificationsNoneOutlined />}
       />
       <BottomNavigationAction
-        label="Info"
-        icon={<NotificationsNoneOutlined />}
+        onClick={() => router.push('/app/user')}
+        label="Profil"
+        icon={<Avatar sx={{ width: '24px', height: '24px' }}></Avatar>}
       />
     </BottomNavigation>
   );

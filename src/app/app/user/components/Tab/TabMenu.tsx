@@ -2,6 +2,7 @@
 import Tab from '@mui/material/Tab';
 import TabList from '@mui/lab/TabList';
 import { Dispatch, SetStateAction } from 'react';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   value: string;
@@ -10,6 +11,7 @@ type Props = {
 };
 
 export default function TabMenu({ value, setValue, menuList }: Props) {
+  const router = useRouter();
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
@@ -22,7 +24,14 @@ export default function TabMenu({ value, setValue, menuList }: Props) {
       variant="scrollable"
     >
       {menuList.map((e: any) => (
-        <Tab key={e.value} label={e.title} value={e.value} />
+        <Tab
+          key={e.value}
+          label={e.title}
+          value={e.value}
+          onClick={() =>
+            router.push(`/app/user/${e.value === 'dashboard' ? '' : e.value}`)
+          }
+        />
       ))}
     </TabList>
   );

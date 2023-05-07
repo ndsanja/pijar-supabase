@@ -52,9 +52,9 @@ const AppAppBar = () => {
             <SearchOutlined />
           </IconButton>
           <IconButton
-            className="!mr-2 md:!mr-0"
+            className=""
             size="small"
-            edge="start"
+            edge="end"
             color="inherit"
             aria-label="chat"
           >
@@ -63,19 +63,19 @@ const AppAppBar = () => {
           <IconButton
             className="!hidden md:!inline-flex"
             size="small"
-            edge="start"
+            edge="end"
             color="inherit"
             aria-label="chat"
           >
             <NotificationsNoneOutlined />
           </IconButton>
-          <Avatar
+          {/* <Avatar
             onClick={() => router.push('/app/user')}
             color="red"
             className="!w-[28px] !h-[28px] cursor-pointer"
           >
             <Typography>N</Typography>
-          </Avatar>
+          </Avatar> */}
         </div>
       </Toolbar>
     </AppBar>

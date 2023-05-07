@@ -1,10 +1,10 @@
 'use client';
 
 import { useSupabase } from '@/app/context/SupabaseProvider';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
-export default function UserPageClient() {
+export default function UserPengaturanContent() {
   const { supabase } = useSupabase();
   const router = useRouter();
 
@@ -14,10 +14,8 @@ export default function UserPageClient() {
     router.replace('/auth/login');
   };
   return (
-    <div>
-      <Button onClick={handleLogout} variant="contained">
-        Keluar
-      </Button>
-    </div>
+    <>
+      <Button onClick={handleLogout}>Keluar</Button>
+    </>
   );
 }
