@@ -13,7 +13,7 @@ const AppLayoutClient = (props: Props) => {
 
   return (
     <>
-      {(path === '/app' || path === '/app/elearning') && <AppAppBar />}
+      {path === '/app' && <AppAppBar />}
       {children}
       <BottomNavigationComp />
     </>

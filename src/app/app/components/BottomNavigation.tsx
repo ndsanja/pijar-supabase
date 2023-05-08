@@ -28,28 +28,28 @@ const BottomNavigationComp = () => {
       onChange={(event: any, newValue: any) => {
         setValue(newValue);
       }}
-      className="!fixed !bottom-0 !left-0 !right-0 md:!hidden !h-[42px]"
+      className="!fixed !bottom-0 !left-0 !right-0 md:!hidden"
     >
       <BottomNavigationAction
         onClick={() => router.push('/app')}
-        icon={<HomeOutlined sx={{ fontSize: '30px' }} />}
+        icon={<HomeOutlined sx={{ fontSize: '28px' }} />}
       />
       <BottomNavigationAction
         onClick={() => router.push('/app/cari')}
-        icon={<SearchOutlined sx={{ fontSize: '30px' }} />}
+        icon={<SearchOutlined sx={{ fontSize: '28px' }} />}
       />
       <BottomNavigationAction
         onClick={() => router.push('/app/elearning')}
         sx={{ whiteSpace: 'nowrap' }}
-        icon={<SchoolOutlined sx={{ fontSize: '30px' }} />}
+        icon={<SchoolOutlined sx={{ fontSize: '28px' }} />}
       />
       <BottomNavigationAction
         onClick={() => router.push('/app/pemberitahuan')}
-        icon={<NotificationsNoneOutlined sx={{ fontSize: '30px' }} />}
+        icon={<NotificationsNoneOutlined sx={{ fontSize: '28px' }} />}
       />
       <BottomNavigationAction
         onClick={() => router.push('/app/user')}
-        icon={<Avatar sx={{ width: '30px', height: '30px' }}></Avatar>}
+        icon={<Avatar sx={{ width: '28px', height: '28px' }}></Avatar>}
       />
     </BottomNavigation>
   );

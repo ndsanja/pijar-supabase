@@ -51,7 +51,7 @@ export default function RegisterForm() {
         setError(stateError.message);
       }
       setIsLoading(false);
-      // router.push('/auth/login');
+      router.push('/app');
     }
   };
 

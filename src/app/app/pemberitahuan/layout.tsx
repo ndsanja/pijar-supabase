@@ -1,4 +1,4 @@
-import AppAppBar from '../components/AppAppBar';
+import PemberitahuanAppBar from './components/PemberitahuanAppBar';
 
 type Props = {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ type Props = {
 export default function PemberitahuanLayout({ children }: Props) {
   return (
     <>
-      <AppAppBar />
+      <PemberitahuanAppBar />
       {children}
     </>
   );

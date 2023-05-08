@@ -51,6 +51,7 @@ export default function LoginForm() {
         setError(stateError.message);
       }
       setIsLoading(false);
+      router.push('/app');
     }
   };
 
