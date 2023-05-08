@@ -7,6 +7,7 @@ import {
   NotificationsNoneOutlined,
   SchoolOutlined,
   TravelExploreOutlined,
+  SearchOutlined,
 } from '@mui/icons-material';
 import {
   Avatar,
@@ -27,31 +28,28 @@ const BottomNavigationComp = () => {
       onChange={(event: any, newValue: any) => {
         setValue(newValue);
       }}
-      className="!fixed !bottom-0 !left-0 !right-0 md:!hidden"
+      className="!fixed !bottom-0 !left-0 !right-0 md:!hidden !h-[42px]"
     >
       <BottomNavigationAction
         onClick={() => router.push('/app')}
-        label="Lobi"
-        icon={<HomeOutlined />}
+        icon={<HomeOutlined sx={{ fontSize: '30px' }} />}
       />
       <BottomNavigationAction
-        label="Explore"
-        icon={<TravelExploreOutlined />}
+        onClick={() => router.push('/app/cari')}
+        icon={<SearchOutlined sx={{ fontSize: '30px' }} />}
       />
       <BottomNavigationAction
         onClick={() => router.push('/app/elearning')}
         sx={{ whiteSpace: 'nowrap' }}
-        label="E-Learning"
-        icon={<SchoolOutlined />}
+        icon={<SchoolOutlined sx={{ fontSize: '30px' }} />}
       />
       <BottomNavigationAction
-        label="Pemberitahuan"
-        icon={<NotificationsNoneOutlined />}
+        onClick={() => router.push('/app/pemberitahuan')}
+        icon={<NotificationsNoneOutlined sx={{ fontSize: '30px' }} />}
       />
       <BottomNavigationAction
         onClick={() => router.push('/app/user')}
-        label="Profil"
-        icon={<Avatar sx={{ width: '24px', height: '24px' }}></Avatar>}
+        icon={<Avatar sx={{ width: '30px', height: '30px' }}></Avatar>}
       />
     </BottomNavigation>
   );

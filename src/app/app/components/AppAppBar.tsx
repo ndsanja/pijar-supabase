@@ -43,14 +43,14 @@ const AppAppBar = () => {
           Pijar
         </Typography>
         <div className="flex items-center justify-center space-x-2">
-          <IconButton
+          {/* <IconButton
             size="small"
             edge="start"
             color="inherit"
             aria-label="chat"
           >
             <SearchOutlined />
-          </IconButton>
+          </IconButton> */}
           <IconButton
             className=""
             size="small"
