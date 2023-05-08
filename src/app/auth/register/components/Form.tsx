@@ -2,67 +2,103 @@
 
 import { useSupabase } from '@/app/context/SupabaseProvider';
 import { LoadingButton } from '@mui/lab';
-import { Button, FormControl, TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
+import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+
+type FormValues = {
+  email: string;
+  password: string;
+};
 
 export default function RegisterForm() {
   const router = useRouter();
   const { supabase } = useSupabase();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleRegister = async (e: any) => {
-    e.preventDefault();
-
+  const onSubmit = async (form: FormValues) => {
+    let stateData: any = null;
+    let stateError: any = null;
     try {
       setIsLoading(true);
       setIsError(false);
       let { data, error } = await supabase.auth.signUp({
-        email,
-        password,
+        email: form.email,
+        password: form.password,
       });
-    } catch (error) {
-      console.log(error);
 
+      stateData = data;
+      stateError = error;
+    } catch (error: any) {
       setIsLoading(false);
       setIsError(true);
     } finally {
+      if (stateError !== null) {
+        setError(stateError.message);
+      }
       setIsLoading(false);
-      setEmail('');
-      setPassword('');
-      router.push('/auth/login');
+      // router.push('/auth/login');
     }
   };
 
   return (
-    <FormControl className="flex flex-col items-center justify-center space-y-4 w-full max-w-xs">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      className="flex flex-col items-center justify-center space-y-4 w-full max-w-xs"
+    >
       <Typography variant="h5">Daftar</Typography>
-      {isError && (
+      {error && (
         <Typography sx={{ color: 'red' }} variant="caption">
-          Something went wrong
+          {error}
         </Typography>
       )}
       <TextField
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        fullWidth
         label="Email"
         type="email"
-        fullWidth
+        {...register('email', {
+          pattern: {
+            value:
+              /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            message: 'Invalid email format',
+          },
+          required: { value: true, message: 'Email is required' },
+        })}
+        error={!!errors.email}
+        helperText={errors.email?.message}
       />
       <TextField
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
         label="Password"
         type="password"
+        {...register('password', {
+          required: { value: true, message: 'Email is required' },
+          minLength: {
+            value: 6,
+            message: 'Password min 6 karakter',
+          },
+        })}
+        error={!!errors.password}
+        helperText={errors.password?.message}
         fullWidth
       />
       <LoadingButton
+        type="submit"
         loading={isLoading}
-        onClick={handleRegister}
         variant="contained"
         sx={{ width: '100%' }}
       >
@@ -72,6 +108,6 @@ export default function RegisterForm() {
         <Typography variant="body1">Sudah punya akun?</Typography>{' '}
         <Button onClick={(e) => router.push('/auth/login')}>Login</Button>
       </div>
-    </FormControl>
+    </form>
   );
 }
