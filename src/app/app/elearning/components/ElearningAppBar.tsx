@@ -16,7 +16,7 @@ import {
   Typography,
   useScrollTrigger,
 } from '@mui/material';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const ElearningAppBar = () => {
   const trigger = useScrollTrigger();
@@ -41,7 +41,7 @@ const ElearningAppBar = () => {
           <MenuOutlined />
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Elearning
+          E-learning
         </Typography>
         <div className="flex items-center justify-center space-x-2">
           <IconButton

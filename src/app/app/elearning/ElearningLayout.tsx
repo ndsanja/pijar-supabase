@@ -49,9 +49,9 @@ const ElearningLayoutClient = (props: Props) => {
         variant="fullWidth"
         aria-label="kategory elearning"
       >
-        <Tab label="Organisasi" {...a11yProps(0)} />
-        <Tab label="Kelas" {...a11yProps(1)} />
-        <Tab label="Materi" {...a11yProps(2)} />
+        <Tab label="Umum" {...a11yProps(0)} />
+        <Tab label="Jadwal" {...a11yProps(1)} />
+        <Tab label="Statistik" {...a11yProps(2)} />
       </Tabs>
       <ElearningPageClient value={value} />
     </>

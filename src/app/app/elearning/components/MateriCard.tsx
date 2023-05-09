@@ -5,7 +5,7 @@ const MateriCard = () => {
   return (
     <div
       onClick={() => router.push('/app/elearning/materi')}
-      className="aspect-square bg-yellow-500 w-full flex items-center justify-center"
+      className="w-full h-[60px] bg-yellow-500 flex items-center justify-center"
     >
       <p>Materi</p>
     </div>

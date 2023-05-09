@@ -1,3 +1,6 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import ElearningAppBar from './components/ElearningAppBar';
 
 type Props = {
@@ -5,9 +8,10 @@ type Props = {
 };
 
 export default function ElearningLayout({ children }: Props) {
+  const path = usePathname();
   return (
     <>
-      <ElearningAppBar />
+      {path === '/app/elearning' && <ElearningAppBar />}
       {children}
     </>
   );

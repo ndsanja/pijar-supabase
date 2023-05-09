@@ -5,6 +5,7 @@ import ContentDisplayView from './components/ContentDisplayView';
 import OrganisasiCard from './components/OrganisasiCard';
 import KelasCard from './components/KelasCard.';
 import MateriCard from './components/MateriCard';
+import Umum from './components/Umum';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -24,7 +25,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 1 }}>{children}</Box>}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 }
@@ -38,15 +39,7 @@ const ElearningPageClient = (props: Props) => {
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: 'transparent' }}>
       <TabPanel value={value} index={0}>
-        <ContentDisplayView>
-          <OrganisasiCard />
-          <OrganisasiCard />
-          <OrganisasiCard />
-          <OrganisasiCard />
-          <OrganisasiCard />
-          <OrganisasiCard />
-          <OrganisasiCard />
-        </ContentDisplayView>
+        <Umum />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <ContentDisplayView>
