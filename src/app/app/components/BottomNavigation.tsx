@@ -28,7 +28,7 @@ const BottomNavigationComp = () => {
       onChange={(event: any, newValue: any) => {
         setValue(newValue);
       }}
-      className="!fixed !bottom-0 !left-0 !right-0 md:!hidden"
+      className="!fixed !bottom-0 !left-0 !right-0 md:!hidden !z-[100]"
     >
       <BottomNavigationAction
         onClick={() => router.push('/app')}

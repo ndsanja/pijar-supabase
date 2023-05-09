@@ -8,9 +8,8 @@ import { theme } from '@/utils/theme/themeConfig';
 import { Paper } from '@mui/material';
 import { grey } from '@mui/material/colors';
 
-const clientSideEmotionCache = createEmotionCache();
-
 const MuiContext = ({ children }: { children: React.ReactNode }) => {
+  const clientSideEmotionCache = createEmotionCache();
   return (
     <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={theme}>

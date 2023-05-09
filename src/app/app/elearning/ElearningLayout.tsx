@@ -40,6 +40,7 @@ const ElearningLayoutClient = (props: Props) => {
           backgroundColor: 'white',
           position: 'sticky',
           top: trigger ? '0px' : '50px',
+          zIndex: 100,
         }}
         className="transition-opacity duration-300 delay-200"
         value={value}
